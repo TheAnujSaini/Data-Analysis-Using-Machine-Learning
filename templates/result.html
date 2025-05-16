@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EDA Results</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0f172a;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    table {
+      color: black;
+    }
+  </style>
+</head>
+<body class="p-6">
+  <div class="max-w-6xl mx-auto">
+    <h1 class="text-4xl font-bold mb-6 text-center" data-aos="fade-down">EDA Report</h1>
+
+    <div class="mb-6" data-aos="fade-up">
+      <h2 class="text-2xl mb-2">Statistical Summary</h2>
+      <div class="bg-white p-4 rounded-lg overflow-auto">{{ summary|safe }}</div>
+    </div>
+
+    <div class="mb-6" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="text-2xl mb-2">Missing Values Info</h2>
+      <div class="bg-white p-4 rounded-lg overflow-auto">{{ null_info|safe }}</div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="fade-up" data-aos-delay="200">
+      {% for path in image_paths %}
+        <div class="bg-white rounded-xl p-4">
+          <img src="{{ path }}" class="rounded-lg" />
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="mt-6 bg-white text-black p-4 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+      {{ advanced_analysis|safe }}
+    </div>
+
+    <div class="text-center mt-6" data-aos="zoom-in">
+      <a href="/download_cleaned" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg">Download Cleaned Data</a>
+    </div>
+  </div>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

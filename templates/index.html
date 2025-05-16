@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EDA Uploader</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #1c92d2, #f2fcfe);
+      font-family: 'Segoe UI', sans-serif;
+    }
+  </style>
+</head>
+<body class="p-8">
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-xl" data-aos="fade-up">
+    <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Upload Your Dataset</h1>
+    <form method="POST" enctype="multipart/form-data" class="space-y-6">
+      <input type="file" name="file" required class="w-full border p-3 rounded-lg"/>
+      
+      <div>
+        <label class="block mb-2 font-semibold">Missing Value Handling:</label>
+        <select name="clean_option" class="w-full border p-3 rounded-lg">
+          <option value="drop_na">Drop NA</option>
+          <option value="fill_mean">Fill Mean</option>
+          <option value="fill_median">Fill Median</option>
+          <option value="fill_mode">Fill Mode</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-2 font-semibold">Graph Options:</label>
+        <div class="flex flex-wrap gap-4">
+          <label><input type="checkbox" name="graph_option" value="histogram" class="mr-2">Histogram</label>
+          <label><input type="checkbox" name="graph_option" value="heatmap" class="mr-2">Heatmap</label>
+          <label><input type="checkbox" name="graph_option" value="boxplot" class="mr-2">Boxplot</label>
+          <label><input type="checkbox" name="graph_option" value="pairplot" class="mr-2">Pairplot</label>
+          <label><input type="checkbox" name="graph_option" value="feature_importance" class="mr-2">Feature Importance</label>
+          <label><input type="checkbox" name="graph_option" value="regression" class="mr-2">Regression</label>
+        </div>
+      </div>
+
+      <div>
+        <label class="block mb-2 font-semibold">Graph Size:</label>
+        <select name="graph_size" class="w-full border p-3 rounded-lg">
+          <option value="small">Small</option>
+          <option value="medium" selected>Medium</option>
+          <option value="large">Large</option>
+        </select>
+      </div>
+
+      <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition duration-300">Submit</button>
+    </form>
+  </div>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

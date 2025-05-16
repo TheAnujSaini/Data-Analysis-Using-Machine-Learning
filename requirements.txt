@@ -1,0 +1,8 @@
+Flask
+Flask_SQLAlchemy
+Flask_Login
+Werkzeug
+pandas
+matplotlib
+seaborn
+scikit-learn
