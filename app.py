@@ -94,7 +94,8 @@ def index():
 
         if file:
             if file.filename.endswith(".csv"):
-                data = pd.read_csv(file)
+               data = pd.read_csv(file, encoding='latin1')
+
             elif file.filename.endswith((".xlsx", ".xls")):
                 data = pd.read_excel(file)
             else:
